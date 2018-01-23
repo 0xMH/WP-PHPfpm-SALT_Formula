@@ -1,0 +1,30 @@
+{% set nginx = salt['grains.filter_by']({
+    'RedHat': {
+        'server': 'nginx',
+        'service': 'nginx',
+        'group': 'nginx',
+        'user': 'nginx',
+        'config': '/etc/nginx/nginx.conf',
+        'repo' : 'epel-release',
+        'InstallationGroup' : 'Development Tools',
+        'OptionalDependencies': ['perl', 'perl-devel', 'perl-ExtUtils-Embed', 'libxslt', 'libxslt-devel', 'libxml2', 'libxml2-devel', 'gd', 'gd-devel', 'GeoIP', 'GeoIP-devel']
+    }
+}, merge=salt['pillar.get']('nginx:lookup')) %}
+
+
+{% set parent_dict = [
+  {'pcre-8.40.tar.gz':'https://ftp.pcre.org/pub/pcre/pcre-8.40.tar.gz'},{'openssl-1.1.0f.tar.gz':'https://www.openssl.org/source/openssl-1.1.0f.tar.gz'},
+  {'nginx-1.13.2.tar.gz':'https://nginx.org/download/nginx-1.13.2.tar.gz'},{'zlib-1.2.11.tar.gz':'https://www.zlib.net/zlib-1.2.11.tar.gz'}
+  ] %}
+
+
+{% set php_source = {'php-7.1.11.tar.gz':'http://am1.php.net/get/php-7.1.11.tar.gz/from/this/mirror'} %}
+
+{% set php_dep = ['openssl', 'openssl-devel', 'pcre-devel', 'sqlite-devel', 'bzip2-devel', 'libcurl-devel', 'libicu-devel', 'readline-devel', 'libmcrypt-devel', 'systemd-devel'] %}
+
+
+
+
+
+
+
